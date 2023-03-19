@@ -39,7 +39,7 @@ for ENC_FOLDER in $ENC_FOLDERS; do
   mkdir -p $DEC_FOLDER
 
   if [ ! -z "$PASSWD" ]; then
-    gocryptfs $MOUNT_OPTIONS -fg -extpass 'printenv PASSWD' $ENC_FOLDER $DEC_FOLDER & pids+=($!)
+    gocryptfs $MOUNT_OPTIONS -fg -extpass $PASSWD $ENC_FOLDER $DEC_FOLDER & pids+=($!)
   else
     gocryptfs $MOUNT_OPTIONS -fg $ENC_FOLDER $DEC_FOLDER & pids+=($!)
   fi
